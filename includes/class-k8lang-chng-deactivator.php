@@ -30,7 +30,10 @@ class K8lang_Chng_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-
+		$us = get_users(array( 'fields' => array( 'ID' )));
+		foreach ($us as $value) {
+			update_user_meta($value->ID,'locale', '');
+		}
 	}
 
 }

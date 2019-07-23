@@ -30,7 +30,10 @@ class K8lang_Chng_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-
+		$us = get_users(array( 'fields' => array( 'ID' )));
+		foreach ($us as $value) {
+			update_user_meta($value->ID,'locale', 'en_US');
+		}
 	}
 
 }
